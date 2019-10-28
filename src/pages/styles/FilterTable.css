@@ -1,0 +1,37 @@
+/* ------------------ */
+
+body{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.table{
+    background:rgba(241, 241, 241, 0.562);
+    display: flex;
+    flex-flow: column;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    max-width: 22rem;
+}
+
+.table table{
+    padding:2rem;
+}
+
+.table tbody th{
+    opacity: .15;
+    font-style: italic;
+}
+
+.SearchBar{
+    background: rgb(54, 62, 90);
+    color: aliceblue;
+    display: flex;
+    flex-flow: column;
+}
+
+.SearchBar input[type='text']{
+    height: 2rem;
+    padding: .3rem;
+}
