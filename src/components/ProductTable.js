@@ -16,10 +16,21 @@ class ProductCategoryRow extends React.Component {
 
 class ProductTable extends React.Component {
     render() {
+        const filterText = this.props.filterText;
+        const inStockOnly = this.props.inStockOnly;
+
         const rows = [];
         let lastCategory = null;
 
         this.props.products.forEach( (product)=> {
+            /* Fix to Case sensitive filter */
+            let pNombre = (product.name).toLowerCase();
+            if(pNombre.indexOf(filterText.toLowerCase())===-1){
+                return;
+            }
+            if(inStockOnly && !product.stocked){
+                return;
+            }
             if(product.category !== lastCategory){
                 rows.push(
                     <ProductCategoryRow 
@@ -33,7 +44,8 @@ class ProductTable extends React.Component {
                     product={product}
                     key={product.name}
                 />
-            )
+            );
+            lastCategory= product.category;
         } )
         return (
             <table>
